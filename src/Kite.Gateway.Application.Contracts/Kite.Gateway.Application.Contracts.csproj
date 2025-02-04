@@ -1,27 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <DocumentationFile>Kite.Gateway.Application.Contracts.xml</DocumentationFile>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;8618</NoWarn>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;8618</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="9.0.4" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Kite.Gateway.Domain.Shared\Kite.Gateway.Domain.Shared.csproj" />
   </ItemGroup>
-
 </Project>

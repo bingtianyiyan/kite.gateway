@@ -7,54 +7,54 @@
 @inject IWebHostEnvironment WebHostEnvironment;
 <div class="row">
     <ValidateForm Model="@Model" OnValidSubmit="@OnSaveAsync" OnInvalidSubmit="@OnInvalidSubmitAsync">
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.UseState" DisplayText="状态" OnText="开启" OffText="关闭"></Switch>
-            </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.UseState" DisplayText="状态" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5">
+            <BootstrapInput @bind-Value="Model.Issuer" DisplayText="颁发者" IsTrim="true" />
+        </div>
+        <div class="col-5"  style="margin-top:5px;" >
+            <BootstrapInput @bind-Value="Model.Audience" DisplayText="观察者" IsTrim="true" />
+        </div>
+        <div class="col-5"  style="margin-top:5px;" >
+
+            <BootstrapInputNumber @bind-Value="Model.ClockSkew" DisplayText="时间偏移(秒)" IsTrim="true" />
+        </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.ValidateIssuerSigningKey" DisplayText="是否验证签名" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.ValidateIssuer" DisplayText="是否验证颁发者" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.ValidateAudience" DisplayText="是否验证观察者" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.ValidateLifetime" DisplayText="是否验证失效时间" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.RequireExpirationTime" DisplayText="是否需要过期时间" OnText="开启" OffText="关闭"></Switch>
+        </div>
+
+        <div class="col-5"  style="margin-top:5px;">
+            <Switch OnColor="Color.Success" @bind-Value="Model.UseSSL" OnValueChanged="@OnUseSSLSwitch" DisplayText="是否启用SSL证书" OnText="开启" OffText="关闭"></Switch>
+        </div>
+        <div class="col-5" style="margin-top:5px;">
+            <InputUpload Accept="" @bind-Value="@Model.CertificateFileName"  OnChange="@OnFileChange" DisplayText="证书文件(.pfx Or .cer)" />  
+        </div>
+
+        <div class="col-5" style="margin-top:5px;">
+            <BootstrapInput @bind-Value="Model.CertificatePassword" DisplayText="证书密码" IsDisabled="@(IsDisabledUseSSL)" IsTrim="true" />
+        </div>
+        <div class="col-5" style="margin-top:5px;">
+            <BootstrapInput @bind-Value="Model.SecurityKeyStr" DisplayText="自定义秘钥" IsDisabled="@IsDisabledSecurityKey" IsTrim="true" />
+        </div>
+        <div class="row" style="margin-top:10px;">
             <div class="col-5">
-                   <BootstrapInput @bind-Value="Model.Issuer" DisplayText="颁发者" IsTrim="true" />
-             </div>
-             <div class="col-5"  style="margin-top:5px;" >
-                   <BootstrapInput @bind-Value="Model.Audience" DisplayText="观察者" IsTrim="true" />
-             </div>
-             <div class="col-5"  style="margin-top:5px;" >
-                 
-                 <BootstrapInputNumber @bind-Value="Model.ClockSkew" DisplayText="时间偏移(秒)" IsTrim="true" />
-             </div>
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.ValidateIssuerSigningKey" DisplayText="是否验证签名" OnText="开启" OffText="关闭"></Switch>
+                <Button ButtonType="ButtonType.Submit"  IsAsync="true" Color="Color.Primary">保 存</Button>
             </div>
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.ValidateIssuer" DisplayText="是否验证颁发者" OnText="开启" OffText="关闭"></Switch>
-            </div>
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.ValidateAudience" DisplayText="是否验证观察者" OnText="开启" OffText="关闭"></Switch>
-            </div>
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.ValidateLifetime" DisplayText="是否验证失效时间" OnText="开启" OffText="关闭"></Switch>
-            </div>
-            <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.RequireExpirationTime" DisplayText="是否需要过期时间" OnText="开启" OffText="关闭"></Switch>
-            </div>
-            
-             <div class="col-5"  style="margin-top:5px;">
-                   <Switch OnColor="Color.Success" @bind-Value="Model.UseSSL" OnValueChanged="@OnUseSSLSwitch" DisplayText="是否启用SSL证书" OnText="开启" OffText="关闭"></Switch>
-            </div>
-            <div class="col-5" style="margin-top:5px;">
-                  <InputUpload Accept="" @bind-Value="@Model.CertificateFileName"  OnChange="@OnFileChange" DisplayText="证书文件(.pfx Or .cer)" />  
-             </div>
-             
-            <div class="col-5" style="margin-top:5px;">
-                 <BootstrapInput @bind-Value="Model.CertificatePassword" DisplayText="证书密码" IsDisabled="@(IsDisabledUseSSL)" IsTrim="true" />
-             </div>
-             <div class="col-5" style="margin-top:5px;">
-                   <BootstrapInput @bind-Value="Model.SecurityKeyStr" DisplayText="自定义秘钥" IsDisabled="@IsDisabledSecurityKey" IsTrim="true" />
-             </div>
-            <div class="row" style="margin-top:10px;">
-                <div class="col-5">
-                    <Button ButtonType="ButtonType.Submit"  IsAsync="true" Color="Color.Primary">保 存</Button>
-                </div>
-            </div>
-           </ValidateForm>
+        </div>
+    </ValidateForm>
 </div>
 
 
@@ -94,7 +94,8 @@
         {
             //保存证书文件
             var filePath = Path.Combine(WebHostEnvironment.WebRootPath, $"upload/{file.File.Name}");
-            await file.SaveToFile(filePath);
+            file.PrevUrl = filePath;
+           // await file.SaveToFile(filePath);
             //读取文件并且转换为BASE64字符串存储
             using var fs = new FileStream(filePath, FileMode.Open);
             fs.Seek(0, SeekOrigin.Begin);

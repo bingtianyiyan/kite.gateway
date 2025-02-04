@@ -3,9 +3,9 @@
 @inject NavigationManager navigationManager
 
 <Layout SideWidth="0" IsPage="true" ShowGotoTop="true" ShowCollapseBar="true"
-        IsFullSide="@IsFullSide" IsFixedHeader="@IsFixedHeader" IsFixedFooter="@IsFixedFooter" ShowFooter="@ShowFooter"
-        TabDefaultUrl="/"
-        Menus="@Menus"  UseTabSet="@UseTabSet" AdditionalAssemblies="new[] { GetType().Assembly }" class="@Theme">
+IsFullSide="@IsFullSide" IsFixedHeader="@IsFixedHeader" IsFixedFooter="@IsFixedFooter" ShowFooter="@ShowFooter"
+TabDefaultUrl="/"
+Menus="@Menus"  UseTabSet="@UseTabSet" AdditionalAssemblies="new[] { GetType().Assembly }" class="@Theme">
     <Header>
         <span class="ms-3 flex-sm-fill d-none d-sm-block">Kite Gateway</span>
         <div class="flex-fill d-sm-none">
@@ -30,7 +30,7 @@
     </Main>
     <Footer>
         <div class="text-center flex-fill">
-            
+
         </div>
     </Footer>
     <NotFound>
@@ -53,10 +53,11 @@
             {
                 builder.OpenComponent<Button>(0);
                 builder.AddAttribute(1, nameof(Button.Text), "前往登录");
-                builder.AddAttribute(2, nameof(Button.OnClick), EventCallback.Factory.Create<MouseEventArgs>(this, () =>
+                builder.AddAttribute(2, nameof(Button.OnClick), EventCallback.Factory.Create<MouseEventArgs>(this, async () =>
                 {
                     navigationManager.NavigateTo("/Login");
-                    op.Close();
+                    //op.Close();
+                    await op.CloseAsync();
                 }));
                 builder.CloseComponent();
             });
