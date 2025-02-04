@@ -111,7 +111,10 @@ namespace Kite.Gateway.Web
                 options.Filters.Add<KiteCoreActionFilter>();
             })
             .AddJsonOptions(opt => { });
-            Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");
+            Configure<AbpJsonOptions>(options => {
+                options.OutputDateTimeFormat = "yyyy-MM-dd HH:mm:ss";
+                options.InputDateTimeFormats = new List<string> { "yyyy-MM-dd HH:mm:ss" };
+            });
         }
         /// <summary>
         /// 配置反向代理
