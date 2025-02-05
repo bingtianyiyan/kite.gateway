@@ -4,10 +4,10 @@
     <div class="alert-content">
         <h4><i class="fa fa-lightbulb-o"></i>有言</h4><!--!-->
         <p>
-            .Net版本: .Net 7  <br/>
-            数据库:   Sqlite <br/>
+            .Net版本: .Net 9  <br/>
+            数据库:   MySql <br/>
             后台管理: Blazor (<a href="https://www.blazor.zone">Bootstrap Blazor UI</a>)  <br/>
-            开发框架: Abp Vnext 7.X <br/>
+            开发框架: Abp Vnext 9.X <br/>
             反向代理组件: Yarp 2.X
         </p>
         <p>
@@ -29,6 +29,12 @@
         base.OnInitialized();
         AlternateTimelineItems = new List<TimelineItem>()
         {
+             new TimelineItem()
+            {
+                Description="2025-02-04",
+                Content="第一个小迭代版本(升级到.NET 9,数据库更换成Mysql、调整配置数据热更新功能)"
+            }
+            ,
             new TimelineItem()
             {
                 Description="2022-09-21",

@@ -6,7 +6,7 @@
 
 #### 软件架构
 
-开发框架 .Net 7 + Abp Vnext 7.0.1 + Blazor(UI框架:BootstrapBlazor)
+开发框架 .Net 9 + Abp Vnext 9.0.3 + Blazor(UI框架:BootstrapBlazor)
 
 admin 目录为网关管理后台
 simples 目录为服务案例
